@@ -1,18 +1,25 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickPix Enhancer</title>
+    <title>Raaashidh Photo Studio Minimalist</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>QuickPix Enhancer</h1>
+        <h1>Raashidh Photo Studio</h1>
         
         <div class="upload-section">
-            <input type="file" id="upload" accept="image/*" hidden>
-            <label for="upload" class="btn upload-btn">Choose an Image</label>
+            <div class="btn-group">
+                <input type="file" id="upload" accept="image/*" hidden>
+                <label for="upload" class="btn upload-btn">Choose Base Image</label>
+            </div>
+            <div class="btn-group">
+                <input type="file" id="pipUpload" accept="image/*" hidden disabled>
+                <label id="pipLabel" for="pipUpload" class="btn pip-btn disabled">Add PiP Overlay</label>
+            </div>
+            <button id="cropBtn" class="btn crop-btn" disabled>Crop Selection</button>
         </div>
 
         <div class="editor-layout">
@@ -21,6 +28,7 @@
             </div>
 
             <div class="controls">
+                <h3>Filters</h3>
                 <div class="control-group">
                     <label for="brightness">Brightness</label>
                     <input type="range" id="brightness" min="0" max="200" value="100">
@@ -38,7 +46,17 @@
 
                 <div class="control-group">
                     <label for="blur">Blur</label>
-                    <input type="range" id="blur" min="0" max="10" value="0" step="0.1">
+                    <input type="range" id="blur" min="0" max="20" value="0">
+                </div>
+
+                <hr>
+                <div id="pipControls" class="pip-adjustments hidden">
+                    <h3>PiP Adjustments</h3>
+                    <div class="control-group">
+                        <label for="pipScale">PiP Size</label>
+                        <input type="range" id="pipScale" min="10" max="100" value="30">
+                    </div>
+                    <p class="hint">Click and drag inside the overlay image to move it.</p>
                 </div>
 
                 <button id="download" class="btn download-btn" disabled>Download Image</button>
