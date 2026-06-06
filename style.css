@@ -1,7 +1,9 @@
-:root {
+  :root {
     --bg-color: #121212;
     --card-bg: #1e1e1e;
     --accent-color: #00adb5;
+    --pip-color: #ff5722;
+    --crop-color: #e91e63;
     --text-color: #eeeeee;
 }
 
@@ -26,37 +28,43 @@ body {
     text-align: center;
 }
 
-h1 {
-    margin-top: 0;
+.upload-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     margin-bottom: 25px;
-    font-weight: 600;
+    flex-wrap: wrap;
 }
 
 .btn {
-    background-color: var(--accent-color);
     color: white;
     padding: 12px 24px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.2s;
+    transition: all 0.2s;
 }
 
-.btn:hover {
-    filter: brightness(1.1);
+.upload-btn { background-color: var(--accent-color); }
+.pip-btn { background-color: var(--pip-color); }
+.crop-btn { background-color: var(--crop-color); }
+.download-btn { background-color: #28a745; margin-top: 15px; }
+
+.btn:hover:not(:disabled) {
+    filter: brightness(1.2);
 }
 
-.btn:disabled {
-    background-color: #444;
+.btn:disabled, .btn.disabled {
+    background-color: #444 !important;
     cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .editor-layout {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    margin-top: 25px;
     justify-content: center;
 }
 
@@ -69,8 +77,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    min-height: 400px;
+    position: relative;
+    cursor: crosshair;
 }
 
 canvas {
@@ -83,9 +91,9 @@ canvas {
     flex: 0 0 300px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: left;
-    background: #252525;
+    background: #050e1300;
     padding: 20px;
     border-radius: 8px;
 }
@@ -101,7 +109,12 @@ input[type="range"] {
     accent-color: var(--accent-color);
 }
 
-.download-btn {
-    margin-top: 10px;
-    background-color: #28a745;
+hr {
+    border: 0;
+    height: 1px;
+    background: #dac3c3;
+    margin: 15px 0;
 }
+
+.hidden { display: none; }
+.hint { font-size: 0.8rem; color: #aaa; margin: 5px 0 0 0; }
